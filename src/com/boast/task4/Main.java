@@ -14,13 +14,10 @@ public class Main {
     public static void main(String[] args) throws Exception{
 	    String str = "Initialized string";
 
-	    Class<?> clazz = str.getClass();
-
-        Field field = clazz.getDeclaredField("value");
+        Field field = str.getClass().getDeclaredField("value");
         field.setAccessible(true);
 
         System.out.println(str);
-
         field.set(str, "Modified string".toCharArray());
         System.out.println(str);
     }
